@@ -116,12 +116,20 @@ export const Login = async (req, res) => {
         }
 
         // Giving response and storing token in cookie
-        return res.status(200).cookie("token", token, { httpOnly: true, sameSite: 'strict', maxAge: 24 * 60 * 60 * 1000 }
-        ).json({
-            message: `Welcome back ${user.fullName}`,
-            user,
-            success: true,
-        })
+        return res
+            .status(200)
+            .cookie("token", token, {
+                httpOnly: true,
+                secure: true,        
+                sameSite: "none",    
+                maxAge: 24 * 60 * 60 * 1000,
+            })
+            .json({
+                message: `Welcome back ${user.fullName}`,
+                user,
+                success: true,
+            });
+
 
     } catch (error) {
         console.log(error);
