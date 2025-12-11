@@ -11,7 +11,7 @@ import AiRoute from './Routes/Ai_Route.js'
 
 dotenv.config({});
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = 3000;
 
 // Middlewares
 app.use(express.json());
