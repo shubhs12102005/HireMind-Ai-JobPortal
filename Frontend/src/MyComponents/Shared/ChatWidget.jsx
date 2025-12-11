@@ -39,7 +39,7 @@ const ChatWidget = () => {
         setLoading(true);
 
         const res = await axios.post(
-          "http://localhost:3000/ai/chat/get-review",
+          `${import.meta.env.VITE_BACKEND_URL}/ai/chat/get-review`,
           { chat: history },
           {
             headers: { "Content-Type": "application/json" },

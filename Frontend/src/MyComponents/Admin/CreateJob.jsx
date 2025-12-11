@@ -50,7 +50,7 @@ const CreateJob = () => {
         try {
             setLoading(true);
 
-            const res = await axios.post("http://localhost:3000/api/job/create", input, {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/job/create`, input, {
                 headers: {
                     'content-type': 'application/json'
                 },

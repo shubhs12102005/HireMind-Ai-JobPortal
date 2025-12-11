@@ -47,7 +47,7 @@ const UpdateProfle = ({ open, setOpen }) => {
             formData.append("skills", input.skills);
 
             // Making api call
-            const res = await axios.post('http://localhost:3000/api/user/profile/update', formData, {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/profile/update`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
                 withCredentials: true
             })

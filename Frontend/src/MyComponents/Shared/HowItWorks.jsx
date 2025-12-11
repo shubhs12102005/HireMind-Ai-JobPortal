@@ -27,7 +27,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-r from-[#0f172a] to-[#021f1f] text-[#d1fae5]">
+    <section className="py-10 text-[#d1fae5]">
       <div className="container mx-auto px-6 max-w-7xl text-center">
         {/* Subtitle */}
         <p className="text-sm uppercase tracking-widest text-[#6ee7b7] font-semibold mb-4">

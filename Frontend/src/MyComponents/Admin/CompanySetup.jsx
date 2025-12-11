@@ -50,7 +50,7 @@ const CompanySetup = () => {
         console.log(formData);
         try {
             setLoading(true);
-            const res = await axios.put(`http://localhost:3000/api/company/update/${id}`, formData, {
+            const res = await axios.put(`${import.meta.env.VITE_BACKEND_URL}/api/company/update/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

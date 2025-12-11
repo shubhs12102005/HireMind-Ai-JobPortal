@@ -8,7 +8,7 @@ const useGetAllApplicants = (id) => {
     useEffect(() => {
         const getAllApplicants = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/application/${id}/applicants`, { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/application/${id}/applicants`, { withCredentials: true });
                 console.log(res);
                 dispatch(setApplicants(res.data.jobs));
 

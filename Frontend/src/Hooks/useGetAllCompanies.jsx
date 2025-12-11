@@ -8,7 +8,7 @@ const useGetAllCompanies = () => {
     useEffect(() => {
         const getAllCompanies = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/api/company/get', {withCredentials:true});
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/company/get`, {withCredentials:true});
                 console.log(res);
                 
                 if (res.data.success) {

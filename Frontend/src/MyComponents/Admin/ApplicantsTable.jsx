@@ -21,7 +21,7 @@ const ApplicantsTable = () => {
     const statusHandler = async (status, id) => {
         try {
             const res = await axios.post(
-                `http://localhost:3000/api/application/status/${id}/update`,
+                `${import.meta.env.VITE_BACKEND_URL}/api/application/status/${id}/update`,
                 { status },
                 { withCredentials: true }
             );

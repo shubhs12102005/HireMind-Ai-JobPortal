@@ -45,7 +45,7 @@ const Signup = () => {
       if (input.file) {
         formData.append('file', input.file)
       }
-      const res = await axios.post('http://localhost:3000/api/user/signup', formData, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/signup`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
         withCredentials: true,
       })

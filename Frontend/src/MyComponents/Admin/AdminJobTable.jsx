@@ -18,7 +18,7 @@ const AdminJobTable = () => {
         try {
             console.log("in frontend api");
 
-            const res = await axios.get(`http://localhost:3000/api/job/delete/${jobId}`, { withCredentials: true })
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job/delete/${jobId}`, { withCredentials: true })
             if (res?.data?.success) {
                 toast.success(res?.data?.message || "Job Deleted Successfully")
 

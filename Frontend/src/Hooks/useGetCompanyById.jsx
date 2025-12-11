@@ -10,7 +10,7 @@ const useGetCompanyById = (companyId) => {
     useEffect(() => {
         const fetchCompanyById = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/company/get/${companyId}`, { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/company/get/${companyId}`, { withCredentials: true });
                 if (res?.data?.success) {
                     dispatch(setSingleCompany(res.data.company));
                 }

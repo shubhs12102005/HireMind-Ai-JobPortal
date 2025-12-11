@@ -30,7 +30,7 @@ const Navbar = () => {
   // 🚪 Handle logout
   const handleLogout = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/user/logout", { withCredentials: true })
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/user/logout`, { withCredentials: true })
       if (res.data.success) {
         dispatch(setUser(null))
         navigate("/")

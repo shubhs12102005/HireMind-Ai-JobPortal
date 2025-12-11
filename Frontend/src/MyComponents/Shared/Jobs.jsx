@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import { Filter } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
-import useGetAllJobs from '@/Hooks/useGetAllJobs'
 import Footer from '../Main/Footer'
 
 const Jobs = () => {
@@ -16,7 +15,7 @@ const Jobs = () => {
   const [selectedLocation, setSelectedLocation] = useState('')
   const [filteredJobs, setFilteredJobs] = useState([])
 
-  useGetAllJobs()
+  // useGetAllJobs()
 
   useEffect(() => {
     if (!allJobs) return

@@ -8,7 +8,7 @@ const useGetAllAdminJobs = () => {
     useEffect(() => {
         const getAllAdminJobs = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/api/job/recruiter/get', { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job/recruiter/get`, { withCredentials: true });
                 console.log(res);
 
                 if (res.data.success) {

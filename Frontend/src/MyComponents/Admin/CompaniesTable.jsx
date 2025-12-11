@@ -17,7 +17,7 @@ const CompaniesTable = () => {
         try {
             console.log("in frontend api");
 
-            const res = await axios.get(`http://localhost:3000/api/company/delete/${companyId}`, { withCredentials: true })
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/company/delete/${companyId}`, { withCredentials: true })
             if (res?.data?.success) {
                 toast.success(res?.data?.message || "Company Deleted Successfully")
 

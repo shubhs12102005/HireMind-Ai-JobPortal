@@ -24,7 +24,7 @@ const Job = ({ job, unSave, onUnsave }) => {
     const saveForLater = async () => {
         try {
             const res = await axios.post(
-                'http://localhost:3000/api/job/saveForLater',
+                `${import.meta.env.VITE_BACKEND_URL}/api/job/saveForLater`,
                 { jobId: job._id },
                 { withCredentials: true }
             )
@@ -42,7 +42,7 @@ const Job = ({ job, unSave, onUnsave }) => {
     const unSaveJob = async () => {
         try {
             const res = await axios.post(
-                'http://localhost:3000/api/job/unSaveJob',
+                `${import.meta.env.VITE_BACKEND_URL}/api/job/unSaveJob`,
                 { jobId: job._id },
                 { withCredentials: true }
             )
@@ -64,7 +64,7 @@ const Job = ({ job, unSave, onUnsave }) => {
             setAiLoading(true)
 
             const summary = await axios.post(
-                'http://localhost:3000/ai/chat/get-summarize',
+                `${import.meta.env.VITE_BACKEND_URL}/ai/chat/get-summarize`,
                 { job: job },
                 { withCredentials: true }
             );

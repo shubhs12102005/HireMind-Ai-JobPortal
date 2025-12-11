@@ -6,8 +6,6 @@ import Job from './Job';
 const JobsBySkill = () => {
 
     const userskill = useSelector((state) => state.auth?.user?.profile?.skills)
-    console.log("From JobsBySkil: ", userskill);
-
     const [jobs, setJobs] = useState('')
 
 
@@ -15,12 +13,11 @@ const JobsBySkill = () => {
         const fetchJobsBySkill = async () => {
             try {
                 const jobs = await axios.post(
-                    "http://localhost:3000/api/job/getJobsBySkill",
-                    { skills: userskill },    // <-- send skills here
-                    { withCredentials: true }  // <-- send cookies/JWT
+                    `${import.meta.env.VITE_BACKEND_URL}/api/job/getJobsBySkill`,
+                    { skills: userskill },    //  send skills 
+                    { withCredentials: true }  //  send cookies/JWT
                 );
 
-                console.log("From JobsBySkill.......:", jobs.data.jobs);
                 setJobs(jobs.data.jobs);
 
             } catch (error) {
@@ -34,7 +31,7 @@ const JobsBySkill = () => {
     return (
         <div>
             {jobs && (
-                <div className="w-full max-w-7xl mx-auto bg-gray-950 px-6 py-10">
+                <div className="w-full max-w-7xl mx-auto px-6 py-10">
 
                     {/* Heading */}
                     <h1 className="text-3xl font-bold text-white mb-8 text-center">

@@ -2,11 +2,10 @@ import React, { useMemo } from 'react'
 import Navbar from '../Main/Navbar'
 import Job from './Job'
 import { useSelector } from 'react-redux'
-import useGetAllJobs from '@/Hooks/useGetAllJobs'
+import Footer from '../Main/Footer'
 
 const Browse = () => {
   const { allJobs, searchedQuery } = useSelector((state) => state.job)
-  useGetAllJobs()
 
   const filteredJobs = useMemo(() => {
     if (!allJobs) return []
@@ -20,7 +19,7 @@ const Browse = () => {
   }, [allJobs, searchedQuery])
 
   return (
-    <div className="min-h-screen bg-black text-gray-100">
+    <div className="min-h-screen text-gray-100">
       <Navbar />
       <div className="max-w-7xl mx-auto my-10 px-4 sm:px-6 lg:px-8">
         <h1 className="font-bold text-2xl mb-8">Search Results ({filteredJobs.length})</h1>
@@ -34,6 +33,7 @@ const Browse = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   )
 }

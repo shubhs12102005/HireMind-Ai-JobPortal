@@ -8,7 +8,7 @@ const useGetAllAppliedJobs = () => {
     useEffect(() => {
         const getAllAppliedJobs = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/application/get`, { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/application/get`, { withCredentials: true });
                 console.log(res);
                 dispatch(setAllAppliedJobs(res.data.applications));
             } catch (error) {

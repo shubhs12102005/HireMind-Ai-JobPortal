@@ -18,7 +18,7 @@ const CreateCompany = () => {
         try {
             console.log(companyName);
 
-            const res = await axios.post('http://localhost:3000/api/company/register', { companyName }, {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/company/register`, { companyName }, {
                 headers: {
                     'Content-Type': 'application/json',
                 },

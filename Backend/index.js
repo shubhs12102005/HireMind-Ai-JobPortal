@@ -11,14 +11,17 @@ import AiRoute from './Routes/Ai_Route.js'
 
 dotenv.config({});
 const app = express();
+const port = 3000 || process.env.PORT;
 
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'http://localhost:5173',
-    credentials: true
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
 }
 app.use(cors(corsOptions));
 
@@ -30,7 +33,7 @@ app.use('/api/application', ApplicationRoute);
 app.use('/ai/chat', AiRoute);
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
     MongoConnection();
-    console.log("Server running on http://localhost:3000");
+    console.log(`Server running on http://localhost:${port}`);
 })

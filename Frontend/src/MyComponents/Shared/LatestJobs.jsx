@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const LatestJobs = () => {
     const { allJobs } = useSelector((state) => state.job)
-    console.log("Home", allJobs);
 
     return (
         <div className='max-w-7xl mx-auto my-10'>

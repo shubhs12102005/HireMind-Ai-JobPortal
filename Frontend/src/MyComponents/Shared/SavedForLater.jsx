@@ -3,6 +3,7 @@ import axios from "axios";
 import Job from "./Job";
 import Navbar from "../Main/Navbar";
 import { Link } from "react-router-dom";
+import Footer from "../Main/Footer";
 
 const SavedForLater = () => {
     // State to save all jobs from backend
@@ -12,7 +13,7 @@ const SavedForLater = () => {
         // Function to fetch saved jobs of user
         const fetchSavedJobs = async () => {
             try {
-                const res = await axios.get("http://localhost:3000/api/job/get-allSavedJobs", {
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job/get-allSavedJobs`, {
                     withCredentials: true,
                 });
                 if (res?.data?.success) {
@@ -33,7 +34,7 @@ const SavedForLater = () => {
     return (
         <div>
             <Navbar />
-            <div className="min-h-screen bg-gray-900 text-gray-200 px-6 py-10">
+            <div className="min-h-screen text-gray-200 px-6 py-10">
                 <h1 className="text-3xl font-bold text-center text-white mb-10">Saved for Later</h1>
 
                 {savedJobs && savedJobs.length > 0 ? (
@@ -52,6 +53,7 @@ const SavedForLater = () => {
                     </div>
                 )}
             </div>
+            <Footer />
         </div>
     );
 };

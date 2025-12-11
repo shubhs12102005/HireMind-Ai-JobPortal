@@ -35,7 +35,7 @@ const Profile = () => {
       formData.append("file", file);
 
       const res = await axios.post(
-        "http://localhost:3000/api/user/profile/AddResume",
+        `${import.meta.env.VITE_BACKEND_URL}/api/user/profile/AddResume`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -55,7 +55,7 @@ const Profile = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-200">
+    <div className="min-h-screen text-gray-200">
       <Navbar />
       <div className="max-w-6xl mx-auto bg-gray-800 border border-gray-700 rounded-2xl my-8 p-8 shadow-lg">
         {/* Profile Header */}
@@ -154,7 +154,7 @@ const Profile = () => {
       </div>
 
       {/* Applied Jobs Section */}
-      <div className="max-w-5xl mx-auto bg-gray-800 border border-gray-700 rounded-2xl p-6 mt-10 shadow-lg text-gray-200">
+      <div className="mb-8 max-w-5xl mx-auto bg-gray-800 border border-gray-700 rounded-2xl p-6 mt-10 shadow-lg text-gray-200">
         <h2 className="font-bold text-2xl mb-6">Applied Jobs</h2>
         <AppliedJobTable />
       </div>

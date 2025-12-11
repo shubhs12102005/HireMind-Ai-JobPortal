@@ -40,10 +40,10 @@ const FilterCard = () => {
   }, [selectedValue])
 
   return (
-    <div className="w-full bg-gray-900 text-gray-100 p-5 rounded-lg shadow-md border border-gray-800">
+    <div className="w-full  text-gray-100 p-5 rounded-lg shadow-md border border-gray-500">
       {/* Heading */}
       <h1 className="font-bold text-xl mb-3 tracking-wide text-gray-50">Filter Jobs</h1>
-      <hr className="border-gray-700 mb-4" />
+      <hr className="border-gray-500 mb-4" />
 
       <RadioGroup value={selectedValue} onValueChange={changeHandler}>
         {filterData.map((group, index) => (

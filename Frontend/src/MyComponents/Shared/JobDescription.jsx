@@ -47,7 +47,7 @@ const JobDescription = () => {
     // Handler to Apply for the job
     const handleApply = async () => {
         try {
-            const res = await axios.get(`http://localhost:3000/api/application/apply/${jobId}`, { withCredentials: true })
+            const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/application/apply/${jobId}`, { withCredentials: true })
             if (res.data.success) {
                 setIsApplied(true);
                 const updatedSingleJob = { ...singleJob, applications: [...singleJob.applications, { applicant: user?._id }] }
@@ -63,7 +63,7 @@ const JobDescription = () => {
     const saveForLater = async () => {
         try {
             const res = await axios.post(
-                "http://localhost:3000/api/job/saveForLater",
+                `${import.meta.env.VITE_BACKEND_URL}/api/job/saveForLater`,
                 { jobId },
                 { withCredentials: true }
             );
@@ -82,7 +82,7 @@ const JobDescription = () => {
     const unSaveJob = async () => {
         try {
             const res = await axios.post(
-                "http://localhost:3000/api/job/unSaveJob",
+                `${import.meta.env.VITE_BACKEND_URL}/api/job/unSaveJob`,
                 { jobId },
                 { withCredentials: true }
             );
@@ -104,7 +104,7 @@ const JobDescription = () => {
             setAiLoading(true)
 
             const summary = await axios.post(
-                'http://localhost:3000/ai/chat/get-summarize',
+                `${import.meta.env.VITE_BACKEND_URL}/ai/chat/get-summarize`,
                 { job: singleJob },
                 { withCredentials: true }
             );
@@ -126,7 +126,7 @@ const JobDescription = () => {
     useEffect(() => {
         const fetchSingleJob = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/job/get/${jobId}`, { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job/get/${jobId}`, { withCredentials: true });
                 if (res.data.success) {
                     dispatch(setSingleJob(res.data.job));
                     setIsApplied(checkApplied(res.data.job.applications));
@@ -137,7 +137,7 @@ const JobDescription = () => {
         }
         const fetchRelatedJobs = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/job/get/relatedjob/${jobId}`, { withCredentials: true });
+                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/job/get/relatedjob/${jobId}`, { withCredentials: true });
                 if (res.data.success) {
                     dispatch(setRelatedJobs(res.data.relatedJobs));
                     setRelatedJobs(res.data.relatedJobs);
@@ -172,7 +172,7 @@ const JobDescription = () => {
     };
 
     return (
-        <div className='bg-gray-900 text-gray-200'>
+        <div className=' text-gray-200'>
             <div className="min-h-screen flex flex-col items-center justify-start">
                 <div className='max-w-4xl w-full'>
 

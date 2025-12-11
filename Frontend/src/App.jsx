@@ -16,6 +16,7 @@ import ProtectedRoute from "./MyComponents/Admin/ProtectedRoute"
 import SavedForLater from "./MyComponents/Shared/SavedForLater"
 import ChatWidget from "./MyComponents/Shared/ChatWidget"
 import RootLayout from "./MyComponents/Shared/RootLayout"
+import CometBackground from "./CometBackground"
 
 const appRouter = createBrowserRouter([
   {
@@ -43,9 +44,17 @@ const appRouter = createBrowserRouter([
 
 function App() {
   return (
-    <div>
-      <RouterProvider router={appRouter} />
-      <ChatWidget />
+   <div style={{ position: "relative", minHeight: "100vh" }}>
+      
+      {/* Background animation */}
+      <CometBackground />
+
+      {/* Your main UI above the background */}
+      <div style={{ position: "relative", zIndex: 10 }}>
+        <RouterProvider router={appRouter} />
+        <ChatWidget />
+      </div>
+
     </div>
   )
 }
